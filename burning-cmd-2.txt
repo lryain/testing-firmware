@@ -1,0 +1,67 @@
+proxy:http://www.proxyie.cn/
+http://blog.hackerspace.my/programming-the-attiny2313-with-the-usbtinyisp
+http://www.ladyada.net/learn/avr/setup-win.html
+http://www.ladyada.net/make/usbtinyisp/download.html
+http://www.ladyada.net/learn/avr/avrdude.html
+
+cd D:\Program Files\WinAVR-20100110\bin
+
+USBTinyISP
+avrdude -c usbtiny -p t2313 -P usb -C ./avrdude.conf -U hfuse:w:0xdf:m -U lfuse:w:0xef:m
+avrdude -c avrdude.conf -U flash:w:main.hex -c usbtiny -p t2313 -P usb
+
+onesetp cmd
+cd D:\udisk\Projects\Ongoing\USBtinyISP\usbtiny v2.0 firm\usbtinyisp\spi
+make fuse flash
+
+cd D:\Program Files\WinAVR-20100110\bin
+test LED
+avrdude -c usbtiny -p t2313 -P usb -C ./avrdude.conf
+avrdude -c usbtiny -p t2313 -P usb -C ./avrdude.conf -U hfuse:w:0xdf:m -U lfuse:w:0xef:m
+avrdude -c avrdude.conf -U flash:w:test_leds.hex -c usbtiny -p t2313 -P usb
+
+To read the low fuse t2313 a file use the command 
+avrdude -c usbtiny -p t2313 -P usb -C ./avrdude.conf -U lfuse:r:lfusefile-t2313.hex:i
+avrdude -c usbtiny -p t2313 -P usb -C ./avrdude.conf -U hfuse:r:hfusefile-t2313.hex:i
+avrdude -c usbtiny -p m2560 -P usb -C ./avrdude.conf
+avrdude -c usbtiny -p m2560 -P usb -C ./avrdude.conf -U lfuse:r:lfusefile-m2560.hex:i
+avrdude -c usbtiny -p m2560 -P usb -C ./avrdude.conf -U hfuse:r:hfusefile-m2560.hex:i
+
+http://www.brischalle.de/avr8_burn-o-mat_avrdude_gui/
+
+cd D:\WinAVR-20100110\bin
+d:
+
+AVRCAM
+avrdude -c usbtiny -p m8 -P usb -C ./avrdude.conf
+avrdude -c usbtiny -p m8 -P usb -C ./avrdude.conf -U hfuse:w:0xcf:m -U lfuse:w:0xff:m
+avrdude -c avrdude.conf -U flash:w:avrcam.hex -c usbtiny -p m8 -P usb
+
+avrdude -c usbtiny -p at90usb162 -P usb -C ./avrdude.conf
+
+cd D:\WinAVR-20100110\bin
+d:
+
+UNO
+avrdude -p at90usb82 -F -P usb -c usbtiny -U flash:w:UNO-dfu_and_usbserial_combined.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+UNO-R3
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-Uno-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+APM2.52
+avrdude -p atmega32u2 -F -P usb -c usbtiny -U flash:w:ArduPPM_v2.3.16_ATMega32U2.hex -U efuse:w:0xF4:m -U hfuse:w:0xD9:m -U lfuse:w:0xFF:m -U lock:w:0x0F:m
+
+MEGA 2560 R3
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-Mega2560-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+MEGA ADK 2560
+
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-MegaADK-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+
+cd D:\Program Files\WinAVR-20100110\bin
+avrdude -p at90usb162 -F -P usb -c usbtiny ./avrdude.conf
+
+avrdude -c usbtiny -p m168 -P usb -C ./avrdude.conf
+
+avrdude -p ATMEGA2560 -F -P usb -c usbtiny ./avrdude.conf

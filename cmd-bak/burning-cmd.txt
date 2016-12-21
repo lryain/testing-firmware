@@ -1,0 +1,17 @@
+cd D:\WinAVR-20100110\bin
+d:
+
+APM2.52
+avrdude -p atmega32u2 -F -P usb -c usbtiny -U flash:w:ArduPPM_v2.3.16_ATMega32U2.hex -U efuse:w:0xF4:m -U hfuse:w:0xD9:m -U lfuse:w:0xFF:m -U lock:w:0x0F:m
+
+UNO-R3
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-Uno-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+MEGA 2560 R3
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-Mega2560-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+MEGA ADK 2560
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-COMBINED-dfu-usbserial-atmega16u2-MegaADK-Rev3.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
+
+Arduino-DUE
+avrdude -p at90usb162 -F -P usb -c usbtiny -U flash:w:Arduino-DUE-usbserial.hex -U lfuse:w:0xFF:m -U hfuse:w:0xD9:m -U efuse:w:0xF4:m -U lock:w:0x0F:m
